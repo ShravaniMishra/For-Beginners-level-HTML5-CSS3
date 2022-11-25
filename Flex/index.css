@@ -1,10 +1,27 @@
-#movie{
+.box{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: center;
-    gap: 15px;
-    width: 100%;
+    width: 96%;
     margin: auto;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.box > div{
+    margin-top: 15px;
+    padding-bottom: 10px;
+    flex-basis: 33%;
+    justify-content: center;
+    align-content: center;
 
+}
+.box > div >img{
+    width: 80%;
+    
+}
+.box > div > button{
+    height: 30px;
+    background-image: linear-gradient(rgb(118, 120, 121),rgb(252, 66, 66));
+    color: whitesmoke;
 }
