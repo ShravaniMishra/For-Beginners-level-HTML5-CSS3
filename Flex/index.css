@@ -49,3 +49,10 @@
     background-image: linear-gradient(rgb(9, 30, 41),rgb(250, 249, 249));
     color: rgb(61, 14, 92);
 }
+@media all and (max-width:320px) and (max-width:727px){
+    .box{
+   grid-template-columns: repeat(2,1fr);
+   grid-template-rows: repeat(3,1fr);
+   gap: 20px;
+    }
+}
