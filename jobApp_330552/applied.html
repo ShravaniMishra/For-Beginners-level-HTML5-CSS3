@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Database</title>
+    <link rel="stylesheet" href="commonStyles.css" />
+  </head>
+
+  <body>
+    <div id="links">
+      <div><a href="index.html">Home</a></div>
+      <div><a href="applied.html">Applied Jobs</a></div>
+      <div><a href="bookmark.html">Bookmarks</a></div>
+    </div>
+
+    <main>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Job applied</th>
+            <th>Salary expected</th>
+            <th>Add to bookmark</th>
+          </tr>
+        </thead>
+        <tbody id="body">
+          <!-- Append your output to tbody -->
+        </tbody>
+      </table>
+    </main>
+  </body>
+  <script>
+    //you need to code here
+    let AppliedJob = JSON.parse(localStorage.getItem("jobList")) || []
+    let BookArr=JSON.parse(localStorage.getItem("bookmarks")) || []
+   AppliedJob.map(function(elem,index){
+
+    let tr=document.createElement("tr")
+
+    let td1=document.createElement("td")
+    td1.innerText=elem.personName
+    let td2=document.createElement("td")
+    td2.innerText=elem.personEmail
+    let td3=document.createElement("td")
+    td3.innerText=elem.personRole
+    let td4=document.createElement("td")
+    td4.innerText=elem.personSalary
+    let td5=document.createElement("td")
+    td5.innerText="Bookmark"
+    td5.style.color="green"
+    td5.addEventListener("click",function(){
+      bookmark(elem,index)
+    })
+
+      tr.append(td1,td2,td3,td4,td5)
+      document.querySelector("#body").append(tr)
+   })
+
+    function bookmark(elem,index){
+      BookArr.push(elem)
+      localStorage.setItem("bookmarks",JSON.stringify(BookArr))
+    }
+    
+  </script>
+</html>
